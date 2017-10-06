@@ -29,10 +29,9 @@ class ResKeeper():
         blob = self.bucket.blob(dst)
         blob.upload_from_filename(out_tar)
 
-        attachment = {'title': '実験が終わりました',
+        attachment = {'title': dst,
                 'color': 'good'}
         params_file = os.path.join(out, self.config['experiment-settings'])
-        print(params_file)
         if os.path.isfile(params_file):
             params = json.load(open(params_file))
             if 'comment' in params:
